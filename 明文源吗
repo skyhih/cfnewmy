@@ -8,7 +8,7 @@ function 解码64(文本) {
   for (let 索引 = 0; 索引 < 二进制.length; 索引++) 字节[索引] = 二进制.charCodeAt(索引);
   return 基础64文本解码器.decode(字节);
 }
-let 认证令牌 = 'c4222c9a-e31b-49f9-961b-5ade7ffd9c3d';
+let 认证令牌 = 'cc4fef81-7ae0-4c31-ad84-f24c773468af';
 let 回退地址 = '';
 let 代理5配置 = '';
 let 自定义优选地址列表 = [];
