@@ -29,7 +29,7 @@ let 传输路径 = '';
 // 启用ECH功能（true启用，false禁用）
 let 启用加密客户端问候 = false;
 // 自定义DNS服务器（默认：https://223.5.5.5/dns-query）
-let 自定义域名系统 = 'https://223.5.5.5/dns-query';
+let 自定义域名系统 = 'https://1.1.1.1/dns-query';
 // 自定义ECH域名（默认：cloudflare-ech.com）
 let 自定义加密客户端问候域名 = 'cloudflare-ech.com';
 let 自定义应用层协议协商 = '';
@@ -49,13 +49,13 @@ let 键值配置上次加载 = 0;
 const 键值缓存期限 = 30 * 1000; // 30秒缓存（短窗口内跳过版本检查）
 let 键值配置版本 = '';
 const 配置默认值 = {
-  wk: '',
+  wk: 'US',
   ev: 'yes',
   et: 'no',
   ex: 'no',
   ech: 'no',
   tp: '',
-  customDNS: 'https://223.5.5.5/dns-query',
+  customDNS: 'https://1.1.1.1/dns-query',
   customECHDomain: 'cloudflare-ech.com',
   alpn: '',
   d: '',
@@ -1946,7 +1946,7 @@ function 构建值节点行(数量值596) {
 function 生成值值589(链接列表588, 本地值587 = {}) {
   const 节点列表586 = 链接列表588.map(解析值链接).filter(数量值585 => 数量值585 && (数量值585.proto === 解码64('dmxlc3M=') || 数量值585.proto === 解码64('dHJvamFu')));
   const 名称列表584 = 节点列表586.map(数量值583 => 数量值583.name);
-  const 域名系统值582 = 自定义域名系统 || 'https://223.5.5.5/dns-query';
+  const 域名系统值582 = 自定义域名系统 || 'https://1.1.1.1/dns-query';
   const 头部581 = ['mixed-port: 7890', 'allow-lan: true', 'mode: rule', 'log-level: info', 'ipv6: true', 'external-controller: 127.0.0.1:9090', 'unified-delay: true', 'tcp-concurrent: true', 'geodata-mode: true', 'geo-auto-update: true', 'geo-update-interval: 24', 'geox-url:', '  geoip: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"', '  geosite: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"', '  mmdb: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"', '  asn: "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/GeoLite2-ASN.mmdb"', 'sniffer:', '  enable: true', '  force-dns-mapping: true', '  parse-pure-ip: true', '  sniff:', '    HTTP:', '      ports: [80, 8080-8880]', '      override-destination: true', '    TLS:', '      ports: [443, 8443]', '    QUIC:', '      ports: [443, 8443]', 'dns:', '  enable: true', '  listen: 0.0.0.0:1053', '  ipv6: true', '  enhanced-mode: fake-ip', '  fake-ip-range: 198.18.0.1/16', '  fake-ip-filter:', '    - "*.lan"', '    - "+.local"', '    - "+.market.xiaomi.com"', '    - "+.msftconnecttest.com"', '    - "+.msftncsi.com"', '    - "localhost.ptlogin2.qq.com"', '    - "+.srv.nintendo.net"', '    - "+.stun.playstation.net"', '    - "+.xboxlive.com"', '  default-nameserver:', '    - 223.5.5.5', '    - 119.29.29.29', '  nameserver:', `    - ${域名系统值582}`, '    - https://119.29.29.29/dns-query', '  fallback:', '    - https://1.1.1.1/dns-query', '    - https://8.8.8.8/dns-query', '  fallback-filter:', '    geoip: true', '    geoip-code: CN', '    ipcidr:', '      - 240.0.0.0/4', ''];
   const 值值580 = ['proxies:'];
   for (const 数量值579 of 节点列表586) 值值580.push(构建值节点行(数量值579));
@@ -1993,7 +1993,7 @@ function 拆域名系统地址(地址) {
 
 function 生成值值数据对象(链接列表573) {
   const 节点列表572 = 链接列表573.map(解析值链接).filter(数量值571 => 数量值571 && (数量值571.proto === 解码64('dmxlc3M=') || 数量值571.proto === 解码64('dHJvamFu')));
-  const 域名系统值570 = 自定义域名系统 || 'https://223.5.5.5/dns-query';
+  const 域名系统值570 = 自定义域名系统 || 'https://1.1.1.1/dns-query';
   const 出站值 = 节点列表572.map(数量值569 => 数量值569.name);
   function 处理节点值出站(数量值568) {
     const 输出567 = {
