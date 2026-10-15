@@ -8,7 +8,7 @@ function 解码64(文本) {
   for (let 索引 = 0; 索引 < 二进制.length; 索引++) 字节[索引] = 二进制.charCodeAt(索引);
   return 基础64文本解码器.decode(字节);
 }
-let 认证令牌 = 'cc4fef81-7ae0-4c31-ad84-f24c773468af';
+let 认证令牌 = 'c4222c9a-e31b-49f9-961b-5ade7ffd9c3d';
 let 回退地址 = '';
 let 代理5配置 = '';
 let 自定义优选地址列表 = [];
@@ -2437,7 +2437,7 @@ function 生成值值(链接列表541) {
   const 节点列表 = 链接列表541.map(解析值链接).filter(数量值540 => 数量值540 && (数量值540.proto === 解码64('dmxlc3M=') || 数量值540.proto === 解码64('dHJvamFu')));
   const 名称列表 = 节点列表.map(数量值539 => 数量值539.name);
   const 圈叉基础配置 = 解码64('aHR0cHM6Ly9mYXN0bHkuanNkZWxpdnIubmV0L2doL2JsYWNrbWF0cml4Ny9pb3NfcnVsZV9zY3JpcHRAbWFzdGVyL3J1bGUvUXVhbnR1bXVsdFg=');
-  const 行列表538 = ['[general]', 'network_check_url=http://www.gstatic.com/generate_204', 'server_check_url=http://www.gstatic.com/generate_204', 'profile_img_url=https://fastly.jsdelivr.net/gh/byJoey/cfnew@main/snippets/logo.png', 'dns_exclusion_list=*.cmpassport.com, *.jegotrip.com.cn, *.icloud.com, *.icloud.com.cn, *.apple.com, *.weibo.com, *.qq.com', 'running_mode_trigger=filter', '', '[dns]', `server=${(自定义域名系统 || '223.5.5.5').replace(/^https?:\/\//, '').replace(/\/.*$/, '')}`, 'server=119.29.29.29', 'server=https://223.5.5.5/dns-query', 'server=https://1.12.12.12/dns-query', '', '[server_local]'];
+  const 行列表538 = ['[general]', 'network_check_url=http://www.gstatic.com/generate_204', 'server_check_url=http://www.gstatic.com/generate_204', 'profile_img_url=https://fastly.jsdelivr.net/gh/byJoey/cfnew@main/snippets/logo.png', 'dns_exclusion_list=*.cmpassport.com, *.jegotrip.com.cn, *.icloud.com, *.icloud.com.cn, *.apple.com, *.weibo.com, *.qq.com', 'running_mode_trigger=filter', '', '[dns]', `server=${(自定义域名系统 || '1.1.1.1').replace(/^https?:\/\//, '').replace(/\/.*$/, '')}`, 'server=119.29.29.29', 'server=https://223.5.5.5/dns-query', 'server=https://1.12.12.12/dns-query', '', '[server_local]'];
   for (const 数量值537 of 节点列表) {
     if (数量值537.proto === 解码64('dmxlc3M=')) {
       const 部分列表536 = [`${数量值537.server}:${数量值537.port}`, `method=none`, `password=${数量值537.uuid}`, `obfs=${数量值537.tls ? 'wss' : 'ws'}`, `obfs-host=${数量值537.host}`, `obfs-uri=${数量值537.path}`];
@@ -2792,7 +2792,7 @@ async function 生成家宽链式值(链接列表) {
   const 加密前置 = 全部前置.filter(项 => 项.tls);
   const 前置节点 = 加密前置.length ? 加密前置 : 全部前置;
   const 前置名称 = 前置节点.map(项 => 项.name);
-  const 域名系统 = 自定义域名系统 || 'https://223.5.5.5/dns-query';
+  const 域名系统 = 自定义域名系统 || 'https://1.1.1.1/dns-query';
   const { 节点列表, 证书 } = await 获取家宽节点();
   const 国家计数 = {};
   const 家宽项 = 节点列表.map(节点 => {
@@ -2896,7 +2896,7 @@ async function 处理订阅请求(请求507, 用户506, 网址505 = null) {
   // 如果启用了ECH，使用自定义值
   let 加密客户端问候配置501 = null;
   if (启用加密客户端问候) {
-    const 域名系统值500 = 自定义域名系统 || 'https://223.5.5.5/dns-query';
+    const 域名系统值500 = 自定义域名系统 || 'https://1.1.1.1/dns-query';
     const 加密客户端问候域名499 = 自定义加密客户端问候域名 || 'cloudflare-ech.com';
     加密客户端问候配置501 = `${加密客户端问候域名499}+${域名系统值500}`;
   }
@@ -3166,7 +3166,7 @@ function 生成链接列表来源源(列表482, 用户481, 工作器域名480, �
 
         // 如果启用了ECH，添加ech参数（ECH需要伪装成Chrome浏览器）
         if (启用加密客户端问候) {
-          const 域名系统值458 = 自定义域名系统 || 'https://223.5.5.5/dns-query';
+          const 域名系统值458 = 自定义域名系统 || 'https://1.1.1.1/dns-query';
           const 加密客户端问候域名457 = 自定义加密客户端问候域名 || 'cloudflare-ech.com';
           网页套接字参数459.set('ech', `${加密客户端问候域名457}+${域名系统值458}`);
         }
@@ -3249,7 +3249,7 @@ async function 生成木马链接列表来源源(列表455, 用户454, 工作器
 
         // 如果启用了ECH，添加ech参数（ECH需要伪装成Chrome浏览器）
         if (启用加密客户端问候) {
-          const 域名系统值435 = 自定义域名系统 || 'https://223.5.5.5/dns-query';
+          const 域名系统值435 = 自定义域名系统 || 'https://1.1.1.1/dns-query';
           const 加密客户端问候域名434 = 自定义加密客户端问候域名 || 'cloudflare-ech.com';
           网页套接字参数436.set('ech', `${加密客户端问候域名434}+${域名系统值435}`);
         }
@@ -4352,7 +4352,7 @@ async function 处理订阅值(请求241, 用户240 = null) {
       enableECH: '启用 ECH (Encrypted Client Hello)',
       enableECHHint: 解码64('5ZCv55So5ZCO77yM5q+P5qyh5Yi35paw6K6i6ZiF5pe25Lya6Ieq5Yqo5LuOIERvSCDojrflj5bmnIDmlrDnmoQgRUNIIOmFjee9ruW5tua3u+WKoOWIsOmTvuaOpeS4rQ=='),
       customDNS: '自定义 DNS 服务器',
-      customDNSPlaceholder: '例如: https://223.5.5.5/dns-query',
+      customDNSPlaceholder: '例如: https://1.1.1.1/dns-query',
       customDNSHint: '用于ECH配置查询的DNS服务器地址（DoH格式）',
       customECHDomain: '自定义 ECH 域名',
       customECHDomainPlaceholder: '例如: cloudflare-ech.com',
@@ -4449,7 +4449,7 @@ async function 处理订阅值(请求241, 用户240 = null) {
       enableECH: 'فعال‌سازی ECH (Encrypted Client Hello)',
       enableECHHint: 'پس از فعال‌سازی، در هر بار تازه‌سازی اشتراک، پیکربندی ECH به‌روز به‌طور خودکار از DoH دریافت شده و به لینک‌ها اضافه می‌شود',
       customDNS: 'سرور DNS سفارشی',
-      customDNSPlaceholder: 'مثال: https://223.5.5.5/dns-query',
+      customDNSPlaceholder: 'مثال: https://1.1.1.1/dns-query',
       customDNSHint: 'آدرس سرور DNS برای جستجوی پیکربندی ECH (فرمت DoH)',
       customECHDomain: 'دامنه ECH سفارشی',
       customECHDomainPlaceholder: 'مثال: cloudflare-ech.com',
@@ -8719,7 +8719,7 @@ function 生成链接列表来源新地址列表(列表100, 用户99, 工作器�
 
       // 如果启用了ECH，添加ech参数（ECH需要伪装成Chrome浏览器）
       if (启用加密客户端问候) {
-        const 域名系统值84 = 自定义域名系统 || 'https://223.5.5.5/dns-query';
+        const 域名系统值84 = 自定义域名系统 || 'https://1.1.1.1/dns-query';
         const 加密客户端问候域名83 = 自定义加密客户端问候域名 || 'cloudflare-ech.com';
         链接85 += `&ech=${encodeURIComponent(`${加密客户端问候域名83}+${域名系统值84}`)}`;
       }
@@ -8738,7 +8738,7 @@ function 生成链接列表来源新地址列表(列表100, 用户99, 工作器�
 
       // 如果启用了ECH，添加ech参数（ECH需要伪装成Chrome浏览器）
       if (启用加密客户端问候) {
-        const 域名系统值78 = 自定义域名系统 || 'https://223.5.5.5/dns-query';
+        const 域名系统值78 = 自定义域名系统 || 'https://1.1.1.1/dns-query';
         const 加密客户端问候域名77 = 自定义加密客户端问候域名 || 'cloudflare-ech.com';
         链接79 += `&ech=${encodeURIComponent(`${加密客户端问候域名77}+${域名系统值78}`)}`;
       }
@@ -8776,7 +8776,7 @@ function 生成扩展超文本链接列表来源源(列表76, 用户75, 工作�
     }));
     处理值应用层协议协商值(参数);
     if (启用加密客户端问候) {
-      const 域名系统值64 = 自定义域名系统 || 'https://223.5.5.5/dns-query';
+      const 域名系统值64 = 自定义域名系统 || 'https://1.1.1.1/dns-query';
       const 加密客户端问候域名63 = 自定义加密客户端问候域名 || 'cloudflare-ech.com';
       参数.set('ech', `${加密客户端问候域名63}+${域名系统值64}`);
     }
@@ -8801,7 +8801,7 @@ async function 生成木马链接列表来源新地址列表(列表, 用户, 工
 
       // 如果启用了ECH，添加ech参数（ECH需要伪装成Chrome浏览器）
       if (启用加密客户端问候) {
-        const 域名系统值58 = 自定义域名系统 || 'https://223.5.5.5/dns-query';
+        const 域名系统值58 = 自定义域名系统 || 'https://1.1.1.1/dns-query';
         const 加密客户端问候域名57 = 自定义加密客户端问候域名 || 'cloudflare-ech.com';
         链接59 += `&ech=${encodeURIComponent(`${加密客户端问候域名57}+${域名系统值58}`)}`;
       }
@@ -8820,7 +8820,7 @@ async function 生成木马链接列表来源新地址列表(列表, 用户, 工
 
       // 如果启用了ECH，添加ech参数（ECH需要伪装成Chrome浏览器）
       if (启用加密客户端问候) {
-        const 域名系统值 = 自定义域名系统 || 'https://223.5.5.5/dns-query';
+        const 域名系统值 = 自定义域名系统 || 'https://1.1.1.1/dns-query';
         const 加密客户端问候域名 = 自定义加密客户端问候域名 || 'cloudflare-ech.com';
         链接 += `&ech=${encodeURIComponent(`${加密客户端问候域名}+${域名系统值}`)}`;
       }
