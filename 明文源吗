@@ -8,7 +8,7 @@ function 解码64(文本) {
   for (let 索引 = 0; 索引 < 二进制.length; 索引++) 字节[索引] = 二进制.charCodeAt(索引);
   return 基础64文本解码器.decode(字节);
 }
-let 认证令牌 = 'c4222c9a-e31b-49f9-961b-5ade7ffd9c3d';
+let 认证令牌 = 'cc4fef81-7ae0-4c31-ad84-f24c773468af';
 let 回退地址 = '';
 let 代理5配置 = '';
 let 自定义优选地址列表 = [];
@@ -642,8 +642,8 @@ export default {
         值自定义地址 = true;
         当前工作器地区 = 'CUSTOM';
       } else {
-        // wk 留空 = 官方直连：直接用内置地址，不再探测地区去匹配第三方域名
-        当前工作器地区 = 'CF';
+        // [CN] 当未手动指定wk时，默认回退至US地区以使用美国ProxyIP，避免落入被Google送中的CF直连池 / [EN] Fallback to US region instead of CF direct when wk is empty
+        当前工作器地区 = 配置默认值.wk || 'US';
       }
       const 地区匹配控制724 = 获取配置文本值('rm', 配置默认值.rm, 本地值734.rm || 本地值734.RM);
       启用地区匹配 = !(地区匹配控制724 && 地区匹配控制724.toLowerCase() === 'no');
@@ -1951,7 +1951,8 @@ function 生成值值589(链接列表588, 本地值587 = {}) {
   const 值值580 = ['proxies:'];
   for (const 数量值579 of 节点列表586) 值值580.push(构建值节点行(数量值579));
   const 节点仅 = 名称列表584.length ? 名称列表584.map(数量值578 => `      - ${处理本地值622(数量值578)}`).join('\n') : '      - DIRECT';
-  const 值值577 = [解码64('cHJveHktZ3JvdXBzOg=='), '  - name: "🚀 节点选择"', '    type: select', '    proxies:', '      - "🎯 全球直连"', 节点仅, '  - name: "🌍 国外媒体"', '    type: select', '    proxies:', 处理值选择值(名称列表584), '  - name: "📺 哔哩哔哩"', '    type: select', '    proxies:', 处理值选择值(名称列表584, {
+  // [CN] 将代理节点（节点仅）排在“🎯 全球直连”之前，防止客户端默认选中直连 / [EN] Put proxy nodes before DIRECT in main selector group
+  const 值值577 = [解码64('cHJveHktZ3JvdXBzOg=='), '  - name: "🚀 节点选择"', '    type: select', '    proxies:', 节点仅, '      - "🎯 全球直连"', '  - name: "🌍 国外媒体"', '    type: select', '    proxies:', 处理值选择值(名称列表584), '  - name: "📺 哔哩哔哩"', '    type: select', '    proxies:', 处理值选择值(名称列表584, {
     directFirst: true
   }), '  - name: "📹 油管视频"', '    type: select', '    proxies:', 处理值选择值(名称列表584, {
     extraGroups: ['🌍 国外媒体']
@@ -2116,7 +2117,8 @@ function 生成值值数据对象(链接列表573) {
     outbounds: [{
       type: 'selector',
       tag: 'select',
-      outbounds: ['direct', ...出站值],
+      // [CN] 将代理节点排在direct之前，确保Karing默认出站走代理节点 / [EN] Place proxy outbounds before direct in selector
+      outbounds: [...出站值, 'direct'],
       default: 出站值[0] || 'direct'
     }, {
       type: 'selector',
@@ -3579,6 +3581,12 @@ async function 处理值值384(地址类型383, 主机, 端口数字, 原始数�
     }
   }
   try {
+    // [CN] 匹配Google及YouTube相关域名，防止使用CF原生共享IPv6/IPv4直连导致Google位置送中 / [EN] Match Google/YouTube domains to bypass CF native egress IP and avoid CN location
+    const 是谷歌域名 = /(?:^|\.)(?:google|gstatic|googleapis|googleusercontent|youtube|youtu\.be|ggpht|1e100)\./i.test(主机);
+    // [CN] 若访问Google系域名且未启用Socks5代理，直接抛出异常进入处理重试连接()，强制通过美国ProxyIP转发 / [EN] Throw error to trigger retry logic via US ProxyIP when accessing Google without Socks5
+    if (是谷歌域名 && !实际代理已启用) {
+      throw new Error('Force ProxyIP fallback for Google domains');
+    }
     // 首跳是否走代理：只走代理 → 必走；优先直连 → 不走；其余按代理是否配置
     const 首跳走代理 = 仅走代理 && 实际代理已启用 ? true : 启用代理降级 ? false : 实际代理已启用;
     const {
